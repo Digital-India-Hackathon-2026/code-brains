@@ -1,0 +1,20 @@
+[
+    "step",
+    "amount",
+    "oldbalanceOrg",
+    "newbalanceOrig",
+    "oldbalanceDest",
+    "newbalanceDest",
+    "orig_balance_change",
+    "dest_balance_change",
+    "orig_balance_error",
+    "dest_balance_error",
+    "amount_to_orig_balance",
+    "amount_to_dest_balance",
+    "origin_zero_after",
+    "destination_zero_before",
+    "is_transfer",
+    "is_cash_out",
+    "hour",
+    "day"
+]
