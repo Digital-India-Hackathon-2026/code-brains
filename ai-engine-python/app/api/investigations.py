@@ -24,10 +24,10 @@ def run_behavioral_analysis(transaction: dict, history: list):
 @router.post("/api/investigations", response_model=InvestigationOutput)
 def start_ai_investigation(evidence_package: dict):
     try:
-        # Call the Gemini service we just wrote
+      
         ai_result = investigate_with_llm(evidence_package)
         
-        # Merge the AI's logic with our system's deterministic fields
+      
         ai_result["investigation_id"] = f"INV-{uuid.uuid4().hex[:6].upper()}"
         ai_result["status"] = "COMPLETED"
         ai_result["created_at"] = datetime.now().isoformat()
@@ -35,7 +35,7 @@ def start_ai_investigation(evidence_package: dict):
         return ai_result
         
     except Exception as e:
-        # The mandatory Fallback Strategy if Gemini times out or API fails
+     
         raise HTTPException(
             status_code=503, 
             detail=f"AI Investigation failed. Fallback triggered: {str(e)}"

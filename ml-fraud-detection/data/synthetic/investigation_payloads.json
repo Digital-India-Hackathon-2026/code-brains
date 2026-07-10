@@ -1,0 +1,530 @@
+{
+    "payload_version": "1.0",
+    "generated_at_utc": "2026-07-10T06:03:41.561960+00:00",
+    "system": {
+        "name": "Autonomous Fraud Triage and Mule Detection Engine",
+        "transaction_model": "XGBoost-PaySim-v1",
+        "fraud_threshold": 0.01
+    },
+    "summary": {
+        "total_investigations": 5,
+        "critical_cases": 3,
+        "high_cases": 0,
+        "medium_cases": 2
+    },
+    "investigations": [
+        {
+            "investigation_id": "INV_0001",
+            "investigation_type": "SUSPECTED_MULE_ACCOUNT",
+            "source_system": "Fraud-Detection-ML",
+            "account_id": "C_MULE_FANIN_001",
+            "risk_assessment": {
+                "mule_risk_score": 100,
+                "mule_risk_level": "CRITICAL",
+                "max_fraud_probability": 0.99999547,
+                "recommended_action": "IMMEDIATE_INVESTIGATION"
+            },
+            "behavioral_profile": {
+                "total_received": 750000.0,
+                "total_sent": 730000.0,
+                "turnover_ratio": 0.9733,
+                "unique_senders": 4,
+                "unique_receivers": 1,
+                "rapid_pass_through_count": 1
+            },
+            "behavioral_evidence": [
+                "Account is connected to at least one transaction with critical ML fraud probability.",
+                "Account rapidly transferred at least 80% of recently received funds.",
+                "Account received funds from 4 unique senders.",
+                "Account moved at least 80% of all funds it received."
+            ],
+            "pass_through_events": [
+                {
+                    "incoming_transactions": [
+                        "MULE_TXN_FANIN_001",
+                        "MULE_TXN_FANIN_002",
+                        "MULE_TXN_FANIN_003",
+                        "MULE_TXN_FANIN_004"
+                    ],
+                    "outgoing_transaction": "MULE_TXN_FANIN_CASHOUT",
+                    "incoming_transaction_count": 4,
+                    "total_recent_received": 750000.0,
+                    "outgoing_amount": 730000.0,
+                    "time_window_steps": 1,
+                    "pass_through_ratio": 0.9733
+                }
+            ],
+            "network_context": {
+                "related_chain_ids": [
+                    "CHAIN_003"
+                ],
+                "chain_count": 1
+            },
+            "transaction_risk_summary": {
+                "total_related_transactions": 5,
+                "ml_flagged_transactions": 4,
+                "critical_transactions": 4,
+                "maximum_fraud_probability": 0.99999547,
+                "average_fraud_probability": 0.80043146
+            },
+            "related_transactions": [
+                {
+                    "transaction_id": "MULE_TXN_FANIN_001",
+                    "chain_id": "CHAIN_003",
+                    "step": 720,
+                    "type": "TRANSFER",
+                    "direction": "INCOMING",
+                    "amount": 150000.0,
+                    "sender": "C_VICTIM_FANIN_001",
+                    "receiver": "C_MULE_FANIN_001",
+                    "fraud_probability": 0.99999547,
+                    "predicted_fraud": true,
+                    "transaction_risk_level": "CRITICAL"
+                },
+                {
+                    "transaction_id": "MULE_TXN_FANIN_002",
+                    "chain_id": "CHAIN_003",
+                    "step": 720,
+                    "type": "TRANSFER",
+                    "direction": "INCOMING",
+                    "amount": 200000.0,
+                    "sender": "C_VICTIM_FANIN_002",
+                    "receiver": "C_MULE_FANIN_001",
+                    "fraud_probability": 0.99999106,
+                    "predicted_fraud": true,
+                    "transaction_risk_level": "CRITICAL"
+                },
+                {
+                    "transaction_id": "MULE_TXN_FANIN_003",
+                    "chain_id": "CHAIN_003",
+                    "step": 720,
+                    "type": "TRANSFER",
+                    "direction": "INCOMING",
+                    "amount": 175000.0,
+                    "sender": "C_VICTIM_FANIN_003",
+                    "receiver": "C_MULE_FANIN_001",
+                    "fraud_probability": 0.99997401,
+                    "predicted_fraud": true,
+                    "transaction_risk_level": "CRITICAL"
+                },
+                {
+                    "transaction_id": "MULE_TXN_FANIN_004",
+                    "chain_id": "CHAIN_003",
+                    "step": 720,
+                    "type": "TRANSFER",
+                    "direction": "INCOMING",
+                    "amount": 225000.0,
+                    "sender": "C_VICTIM_FANIN_004",
+                    "receiver": "C_MULE_FANIN_001",
+                    "fraud_probability": 0.99998713,
+                    "predicted_fraud": true,
+                    "transaction_risk_level": "CRITICAL"
+                },
+                {
+                    "transaction_id": "MULE_TXN_FANIN_CASHOUT",
+                    "chain_id": "CHAIN_003",
+                    "step": 721,
+                    "type": "CASH_OUT",
+                    "direction": "OUTGOING",
+                    "amount": 730000.0,
+                    "sender": "C_MULE_FANIN_001",
+                    "receiver": "C_CASHOUT_FANIN_001",
+                    "fraud_probability": 0.00220964,
+                    "predicted_fraud": false,
+                    "transaction_risk_level": "MEDIUM"
+                }
+            ],
+            "ai_agent_context": {
+                "task": "Investigate the suspicious account for potential mule activity, rapid pass-through behavior, fan-in, fan-out, and multi-hop laundering.",
+                "questions_to_answer": [
+                    "Why was this account flagged?",
+                    "What suspicious behavioral patterns were detected?",
+                    "Which transactions provide the strongest evidence?",
+                    "Is this account acting as a mule, intermediary, aggregator, or distribution account?",
+                    "What action should the fraud analyst take next?"
+                ]
+            }
+        },
+        {
+            "investigation_id": "INV_0002",
+            "investigation_type": "SUSPECTED_MULE_ACCOUNT",
+            "source_system": "Fraud-Detection-ML",
+            "account_id": "C_MULE_001",
+            "risk_assessment": {
+                "mule_risk_score": 80,
+                "mule_risk_level": "CRITICAL",
+                "max_fraud_probability": 0.99999893,
+                "recommended_action": "IMMEDIATE_INVESTIGATION"
+            },
+            "behavioral_profile": {
+                "total_received": 500000.0,
+                "total_sent": 490000.0,
+                "turnover_ratio": 0.98,
+                "unique_senders": 1,
+                "unique_receivers": 1,
+                "rapid_pass_through_count": 1
+            },
+            "behavioral_evidence": [
+                "Account is connected to at least one transaction with critical ML fraud probability.",
+                "Account rapidly transferred at least 80% of recently received funds.",
+                "Account moved at least 80% of all funds it received."
+            ],
+            "pass_through_events": [
+                {
+                    "incoming_transactions": [
+                        "MULE_TXN_001"
+                    ],
+                    "outgoing_transaction": "MULE_TXN_002",
+                    "incoming_transaction_count": 1,
+                    "total_recent_received": 500000.0,
+                    "outgoing_amount": 490000.0,
+                    "time_window_steps": 1,
+                    "pass_through_ratio": 0.98
+                }
+            ],
+            "network_context": {
+                "related_chain_ids": [
+                    "CHAIN_001"
+                ],
+                "chain_count": 1
+            },
+            "transaction_risk_summary": {
+                "total_related_transactions": 2,
+                "ml_flagged_transactions": 1,
+                "critical_transactions": 1,
+                "maximum_fraud_probability": 0.99999893,
+                "average_fraud_probability": 0.50020685
+            },
+            "related_transactions": [
+                {
+                    "transaction_id": "MULE_TXN_001",
+                    "chain_id": "CHAIN_001",
+                    "step": 700,
+                    "type": "TRANSFER",
+                    "direction": "INCOMING",
+                    "amount": 500000.0,
+                    "sender": "C_VICTIM_001",
+                    "receiver": "C_MULE_001",
+                    "fraud_probability": 0.99999893,
+                    "predicted_fraud": true,
+                    "transaction_risk_level": "CRITICAL"
+                },
+                {
+                    "transaction_id": "MULE_TXN_002",
+                    "chain_id": "CHAIN_001",
+                    "step": 701,
+                    "type": "CASH_OUT",
+                    "direction": "OUTGOING",
+                    "amount": 490000.0,
+                    "sender": "C_MULE_001",
+                    "receiver": "C_CASHOUT_001",
+                    "fraud_probability": 0.00041478,
+                    "predicted_fraud": false,
+                    "transaction_risk_level": "LOW"
+                }
+            ],
+            "ai_agent_context": {
+                "task": "Investigate the suspicious account for potential mule activity, rapid pass-through behavior, fan-in, fan-out, and multi-hop laundering.",
+                "questions_to_answer": [
+                    "Why was this account flagged?",
+                    "What suspicious behavioral patterns were detected?",
+                    "Which transactions provide the strongest evidence?",
+                    "Is this account acting as a mule, intermediary, aggregator, or distribution account?",
+                    "What action should the fraud analyst take next?"
+                ]
+            }
+        },
+        {
+            "investigation_id": "INV_0003",
+            "investigation_type": "SUSPECTED_MULE_ACCOUNT",
+            "source_system": "Fraud-Detection-ML",
+            "account_id": "C_MULE_002_A",
+            "risk_assessment": {
+                "mule_risk_score": 80,
+                "mule_risk_level": "CRITICAL",
+                "max_fraud_probability": 0.99999857,
+                "recommended_action": "IMMEDIATE_INVESTIGATION"
+            },
+            "behavioral_profile": {
+                "total_received": 1000000.0,
+                "total_sent": 950000.0,
+                "turnover_ratio": 0.95,
+                "unique_senders": 1,
+                "unique_receivers": 1,
+                "rapid_pass_through_count": 1
+            },
+            "behavioral_evidence": [
+                "Account is connected to at least one transaction with critical ML fraud probability.",
+                "Account rapidly transferred at least 80% of recently received funds.",
+                "Account moved at least 80% of all funds it received."
+            ],
+            "pass_through_events": [
+                {
+                    "incoming_transactions": [
+                        "MULE_TXN_003"
+                    ],
+                    "outgoing_transaction": "MULE_TXN_004",
+                    "incoming_transaction_count": 1,
+                    "total_recent_received": 1000000.0,
+                    "outgoing_amount": 950000.0,
+                    "time_window_steps": 1,
+                    "pass_through_ratio": 0.95
+                }
+            ],
+            "network_context": {
+                "related_chain_ids": [
+                    "CHAIN_002"
+                ],
+                "chain_count": 1
+            },
+            "transaction_risk_summary": {
+                "total_related_transactions": 2,
+                "ml_flagged_transactions": 1,
+                "critical_transactions": 1,
+                "maximum_fraud_probability": 0.99999857,
+                "average_fraud_probability": 0.50058525
+            },
+            "related_transactions": [
+                {
+                    "transaction_id": "MULE_TXN_003",
+                    "chain_id": "CHAIN_002",
+                    "step": 710,
+                    "type": "TRANSFER",
+                    "direction": "INCOMING",
+                    "amount": 1000000.0,
+                    "sender": "C_VICTIM_002",
+                    "receiver": "C_MULE_002_A",
+                    "fraud_probability": 0.99999857,
+                    "predicted_fraud": true,
+                    "transaction_risk_level": "CRITICAL"
+                },
+                {
+                    "transaction_id": "MULE_TXN_004",
+                    "chain_id": "CHAIN_002",
+                    "step": 711,
+                    "type": "TRANSFER",
+                    "direction": "OUTGOING",
+                    "amount": 950000.0,
+                    "sender": "C_MULE_002_A",
+                    "receiver": "C_MULE_002_B",
+                    "fraud_probability": 0.00117192,
+                    "predicted_fraud": false,
+                    "transaction_risk_level": "MEDIUM"
+                }
+            ],
+            "ai_agent_context": {
+                "task": "Investigate the suspicious account for potential mule activity, rapid pass-through behavior, fan-in, fan-out, and multi-hop laundering.",
+                "questions_to_answer": [
+                    "Why was this account flagged?",
+                    "What suspicious behavioral patterns were detected?",
+                    "Which transactions provide the strongest evidence?",
+                    "Is this account acting as a mule, intermediary, aggregator, or distribution account?",
+                    "What action should the fraud analyst take next?"
+                ]
+            }
+        },
+        {
+            "investigation_id": "INV_0004",
+            "investigation_type": "SUSPECTED_MULE_ACCOUNT",
+            "source_system": "Fraud-Detection-ML",
+            "account_id": "C_MULE_002_B",
+            "risk_assessment": {
+                "mule_risk_score": 55,
+                "mule_risk_level": "MEDIUM",
+                "max_fraud_probability": 0.00117192,
+                "recommended_action": "ENHANCED_MONITORING"
+            },
+            "behavioral_profile": {
+                "total_received": 950000.0,
+                "total_sent": 900000.0,
+                "turnover_ratio": 0.9474,
+                "unique_senders": 1,
+                "unique_receivers": 1,
+                "rapid_pass_through_count": 1
+            },
+            "behavioral_evidence": [
+                "Account rapidly transferred at least 80% of recently received funds.",
+                "Account moved at least 80% of all funds it received."
+            ],
+            "pass_through_events": [
+                {
+                    "incoming_transactions": [
+                        "MULE_TXN_004"
+                    ],
+                    "outgoing_transaction": "MULE_TXN_005",
+                    "incoming_transaction_count": 1,
+                    "total_recent_received": 950000.0,
+                    "outgoing_amount": 900000.0,
+                    "time_window_steps": 1,
+                    "pass_through_ratio": 0.9474
+                }
+            ],
+            "network_context": {
+                "related_chain_ids": [
+                    "CHAIN_002"
+                ],
+                "chain_count": 1
+            },
+            "transaction_risk_summary": {
+                "total_related_transactions": 2,
+                "ml_flagged_transactions": 0,
+                "critical_transactions": 0,
+                "maximum_fraud_probability": 0.00117192,
+                "average_fraud_probability": 0.00070304
+            },
+            "related_transactions": [
+                {
+                    "transaction_id": "MULE_TXN_004",
+                    "chain_id": "CHAIN_002",
+                    "step": 711,
+                    "type": "TRANSFER",
+                    "direction": "INCOMING",
+                    "amount": 950000.0,
+                    "sender": "C_MULE_002_A",
+                    "receiver": "C_MULE_002_B",
+                    "fraud_probability": 0.00117192,
+                    "predicted_fraud": false,
+                    "transaction_risk_level": "MEDIUM"
+                },
+                {
+                    "transaction_id": "MULE_TXN_005",
+                    "chain_id": "CHAIN_002",
+                    "step": 712,
+                    "type": "CASH_OUT",
+                    "direction": "OUTGOING",
+                    "amount": 900000.0,
+                    "sender": "C_MULE_002_B",
+                    "receiver": "C_CASHOUT_002",
+                    "fraud_probability": 0.00023416,
+                    "predicted_fraud": false,
+                    "transaction_risk_level": "LOW"
+                }
+            ],
+            "ai_agent_context": {
+                "task": "Investigate the suspicious account for potential mule activity, rapid pass-through behavior, fan-in, fan-out, and multi-hop laundering.",
+                "questions_to_answer": [
+                    "Why was this account flagged?",
+                    "What suspicious behavioral patterns were detected?",
+                    "Which transactions provide the strongest evidence?",
+                    "Is this account acting as a mule, intermediary, aggregator, or distribution account?",
+                    "What action should the fraud analyst take next?"
+                ]
+            }
+        },
+        {
+            "investigation_id": "INV_0005",
+            "investigation_type": "SUSPECTED_MULE_ACCOUNT",
+            "source_system": "Fraud-Detection-ML",
+            "account_id": "C_COMPROMISED_FANOUT_001",
+            "risk_assessment": {
+                "mule_risk_score": 45,
+                "mule_risk_level": "MEDIUM",
+                "max_fraud_probability": 0.99998999,
+                "recommended_action": "ENHANCED_MONITORING"
+            },
+            "behavioral_profile": {
+                "total_received": 0.0,
+                "total_sent": 925000.0,
+                "turnover_ratio": 0.0,
+                "unique_senders": 0,
+                "unique_receivers": 5,
+                "rapid_pass_through_count": 0
+            },
+            "behavioral_evidence": [
+                "Account is connected to at least one transaction with critical ML fraud probability.",
+                "Account sent funds to 5 unique receivers."
+            ],
+            "pass_through_events": [],
+            "network_context": {
+                "related_chain_ids": [
+                    "CHAIN_004"
+                ],
+                "chain_count": 1
+            },
+            "transaction_risk_summary": {
+                "total_related_transactions": 5,
+                "ml_flagged_transactions": 1,
+                "critical_transactions": 1,
+                "maximum_fraud_probability": 0.99998999,
+                "average_fraud_probability": 0.20000727
+            },
+            "related_transactions": [
+                {
+                    "transaction_id": "MULE_TXN_FANOUT_001",
+                    "chain_id": "CHAIN_004",
+                    "step": 730,
+                    "type": "TRANSFER",
+                    "direction": "OUTGOING",
+                    "amount": 190000.0,
+                    "sender": "C_COMPROMISED_FANOUT_001",
+                    "receiver": "C_MULE_FANOUT_001",
+                    "fraud_probability": 1.192e-05,
+                    "predicted_fraud": false,
+                    "transaction_risk_level": "LOW"
+                },
+                {
+                    "transaction_id": "MULE_TXN_FANOUT_002",
+                    "chain_id": "CHAIN_004",
+                    "step": 730,
+                    "type": "TRANSFER",
+                    "direction": "OUTGOING",
+                    "amount": 195000.0,
+                    "sender": "C_COMPROMISED_FANOUT_001",
+                    "receiver": "C_MULE_FANOUT_002",
+                    "fraud_probability": 1.277e-05,
+                    "predicted_fraud": false,
+                    "transaction_risk_level": "LOW"
+                },
+                {
+                    "transaction_id": "MULE_TXN_FANOUT_003",
+                    "chain_id": "CHAIN_004",
+                    "step": 730,
+                    "type": "TRANSFER",
+                    "direction": "OUTGOING",
+                    "amount": 185000.0,
+                    "sender": "C_COMPROMISED_FANOUT_001",
+                    "receiver": "C_MULE_FANOUT_003",
+                    "fraud_probability": 1.257e-05,
+                    "predicted_fraud": false,
+                    "transaction_risk_level": "LOW"
+                },
+                {
+                    "transaction_id": "MULE_TXN_FANOUT_004",
+                    "chain_id": "CHAIN_004",
+                    "step": 730,
+                    "type": "TRANSFER",
+                    "direction": "OUTGOING",
+                    "amount": 180000.0,
+                    "sender": "C_COMPROMISED_FANOUT_001",
+                    "receiver": "C_MULE_FANOUT_004",
+                    "fraud_probability": 9.12e-06,
+                    "predicted_fraud": false,
+                    "transaction_risk_level": "LOW"
+                },
+                {
+                    "transaction_id": "MULE_TXN_FANOUT_005",
+                    "chain_id": "CHAIN_004",
+                    "step": 730,
+                    "type": "TRANSFER",
+                    "direction": "OUTGOING",
+                    "amount": 175000.0,
+                    "sender": "C_COMPROMISED_FANOUT_001",
+                    "receiver": "C_MULE_FANOUT_005",
+                    "fraud_probability": 0.99998999,
+                    "predicted_fraud": true,
+                    "transaction_risk_level": "CRITICAL"
+                }
+            ],
+            "ai_agent_context": {
+                "task": "Investigate the suspicious account for potential mule activity, rapid pass-through behavior, fan-in, fan-out, and multi-hop laundering.",
+                "questions_to_answer": [
+                    "Why was this account flagged?",
+                    "What suspicious behavioral patterns were detected?",
+                    "Which transactions provide the strongest evidence?",
+                    "Is this account acting as a mule, intermediary, aggregator, or distribution account?",
+                    "What action should the fraud analyst take next?"
+                ]
+            }
+        }
+    ]
+}

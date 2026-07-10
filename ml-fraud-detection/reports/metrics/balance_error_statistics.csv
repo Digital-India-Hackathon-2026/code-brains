@@ -1,0 +1,5 @@
+,orig_balance_error,orig_balance_error,orig_balance_error,dest_balance_error,dest_balance_error,dest_balance_error
+,mean,median,max,mean,median,max
+isFraud,,,,,,
+0,201338.55,69049.31,92445520.0,92756.98,5123.11,75885720.0
+1,10692.331,0.0,10000000.0,745138.6,9511.69,10000000.0

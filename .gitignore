@@ -5,3 +5,13 @@ __pycache__/
 target/
 *.jar
 *.pyc
+
+# ML dataset - too large for GitHub
+ml-fraud-detection/data/raw/paysim.csv
+
+# Python cache and environments
+__pycache__/
+*.pyc
+.venv/
+venv/
+.env
