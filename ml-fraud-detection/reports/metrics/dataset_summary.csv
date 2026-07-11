@@ -1,0 +1,8 @@
+metric,value
+total_transactions,6362620.0
+legitimate_transactions,6354407.0
+fraud_transactions,8213.0
+fraud_percentage,0.12908204481801522
+unique_origin_accounts,6353307.0
+unique_destination_accounts,2722362.0
+total_steps,743.0

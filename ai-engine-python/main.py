@@ -1,6 +1,10 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+<<<<<<< HEAD
 from app.api import investigations, copilot
+=======
+from app.api import investigations
+>>>>>>> 26a6597d8f8a6eca43b5393131116fda7afaa882
 
 app = FastAPI(
     title="MuleGuard AI Engine",
@@ -18,7 +22,10 @@ app.add_middleware(
 
 # Include our new investigations router
 app.include_router(investigations.router)
+<<<<<<< HEAD
 app.include_router(copilot.router)
+=======
+>>>>>>> 26a6597d8f8a6eca43b5393131116fda7afaa882
 
 @app.get("/api/health")
 def health_check():

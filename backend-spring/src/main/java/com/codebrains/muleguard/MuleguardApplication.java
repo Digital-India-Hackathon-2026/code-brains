@@ -2,6 +2,7 @@ package com.codebrains.muleguard;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+<<<<<<< HEAD
 import org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaAutoConfiguration;
 import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
 import org.springframework.boot.autoconfigure.data.jpa.JpaRepositoriesAutoConfiguration;
@@ -13,6 +14,10 @@ import org.springframework.boot.autoconfigure.data.jpa.JpaRepositoriesAutoConfig
 		HibernateJpaAutoConfiguration.class,
 		JpaRepositoriesAutoConfiguration.class
 })
+=======
+
+@SpringBootApplication
+>>>>>>> 26a6597d8f8a6eca43b5393131116fda7afaa882
 public class MuleguardApplication {
 
 	public static void main(String[] args) {
