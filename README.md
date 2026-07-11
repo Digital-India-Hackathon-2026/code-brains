@@ -130,15 +130,23 @@ http://localhost:8000
 
 ## System Architecture
 
-(Add architecture diagram here)
+User
+      │
+      ▼
+React Frontend
+      │
+      ▼
+Spring Boot Backend
+      │
+      ├────────► FastAPI ML Service
+      │                │
+      │                ▼
+      │          Fraud Prediction
+      │
+      ▼
+MySQL Database
 
----
 
-## Screenshots
-
-(Add screenshots here)
-
----
 
 ## Future Enhancements
 
