@@ -1,0 +1,12 @@
+com\codebrains\muleguard\controllers\InvestigationController.class
+com\codebrains\muleguard\repositories\CaseReportRepository.class
+com\codebrains\muleguard\MuleguardApplication.class
+com\codebrains\muleguard\models\PredictionRecord.class
+com\codebrains\muleguard\models\PredictionResponse.class
+com\codebrains\muleguard\controllers\CopilotController.class
+com\codebrains\muleguard\controllers\HealthController.class
+com\codebrains\muleguard\models\TransactionRequest.class
+com\codebrains\muleguard\config\WebConfig.class
+com\codebrains\muleguard\repositories\PredictionRecordRepository.class
+com\codebrains\muleguard\controllers\MlController.class
+com\codebrains\muleguard\models\CaseReport.class

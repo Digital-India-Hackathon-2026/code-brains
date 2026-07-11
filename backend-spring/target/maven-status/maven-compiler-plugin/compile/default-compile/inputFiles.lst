@@ -1,0 +1,12 @@
+D:\muleguard-connected-stack (1)\integration\backend-spring\src\main\java\com\codebrains\muleguard\config\WebConfig.java
+D:\muleguard-connected-stack (1)\integration\backend-spring\src\main\java\com\codebrains\muleguard\controllers\CopilotController.java
+D:\muleguard-connected-stack (1)\integration\backend-spring\src\main\java\com\codebrains\muleguard\controllers\HealthController.java
+D:\muleguard-connected-stack (1)\integration\backend-spring\src\main\java\com\codebrains\muleguard\controllers\InvestigationController.java
+D:\muleguard-connected-stack (1)\integration\backend-spring\src\main\java\com\codebrains\muleguard\controllers\MlController.java
+D:\muleguard-connected-stack (1)\integration\backend-spring\src\main\java\com\codebrains\muleguard\models\CaseReport.java
+D:\muleguard-connected-stack (1)\integration\backend-spring\src\main\java\com\codebrains\muleguard\models\PredictionRecord.java
+D:\muleguard-connected-stack (1)\integration\backend-spring\src\main\java\com\codebrains\muleguard\models\PredictionResponse.java
+D:\muleguard-connected-stack (1)\integration\backend-spring\src\main\java\com\codebrains\muleguard\models\TransactionRequest.java
+D:\muleguard-connected-stack (1)\integration\backend-spring\src\main\java\com\codebrains\muleguard\MuleguardApplication.java
+D:\muleguard-connected-stack (1)\integration\backend-spring\src\main\java\com\codebrains\muleguard\repositories\CaseReportRepository.java
+D:\muleguard-connected-stack (1)\integration\backend-spring\src\main\java\com\codebrains\muleguard\repositories\PredictionRecordRepository.java

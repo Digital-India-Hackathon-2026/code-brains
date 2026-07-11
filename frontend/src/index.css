@@ -1,0 +1,418 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Plus Jakarta Sans", "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+}
+
+/* Base body style overrides for the dark theme visual consistency */
+body {
+  background-color: #080808; /* pure flux black */
+  color: #e0e0e0; /* light balance gray */
+}
+
+/* Custom scrollbar adjustments for a premium, low-friction dashboard feel */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #080808;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 0px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* Printing Directives: Isolates the Suspect Report sheet on print triggers */
+@media print {
+  body {
+    background: #ffffff !important;
+    color: #000000 !important;
+  }
+  
+  /* Conceal sidebar, header banners, regulatory action selectors, buttons, and decorative icons */
+  aside, 
+  header, 
+  button, 
+  select,
+  .no-print,
+  #kpi-grid,
+  .lg:col-span-1 {
+    display: none !important;
+  }
+
+  main {
+    padding: 0 !important;
+    margin: 0 !important;
+    max-width: 100% !important;
+    width: 100% !important;
+  }
+
+  /* Isolate and optimize only the main SAR report container for the printed page */
+  #printable-sar {
+    position: absolute !important;
+    left: 0 !important;
+    top: 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    background: #ffffff !important;
+    color: #000000 !important;
+    border: none !important;
+    padding: 0 !important;
+    box-shadow: none !important;
+  }
+
+  /* Reset dark container backgrounds to clean white for standard document printers */
+  #printable-sar * {
+    background: transparent !important;
+    color: #000000 !important;
+    border-color: #e2e8f0 !important;
+  }
+
+  #printable-sar h1,
+  #printable-sar h2,
+  #printable-sar h3 {
+    color: #000000 !important;
+  }
+}
+
+/* LIGHT THEME INLINE STYLING RULES - DESIGNED BY MULETRACE CO-PILOT */
+:root {
+  --bg-primary: #080808;
+  --bg-secondary: #0c0c0c;
+  --border-color: rgba(255, 255, 255, 0.1);
+  --border-color-medium: rgba(255, 255, 255, 0.2);
+}
+
+.light {
+  --bg-primary: #f8fafc;
+  --bg-secondary: #ffffff;
+  --border-color: rgba(15, 23, 42, 0.08);
+  --border-color-medium: rgba(15, 23, 42, 0.15);
+}
+
+/* Base Body Transition */
+body {
+  transition: background-color 0.25s ease, color 0.25s ease;
+}
+
+.light body {
+  background-color: #f8fafc !important;
+  color: #1e293b !important;
+}
+
+/* Theme utility level overrides under light mode to dynamically preserve premium layouts without breaking class structures */
+.light .bg-\[\#080808\] {
+  background-color: #ffffff !important;
+}
+.light .bg-\[\#0c0c0c\] {
+  background-color: #f1f5f9 !important;
+}
+.light .bg-\[\#080808\]\/40 {
+  background-color: rgba(241, 245, 249, 0.4) !important;
+}
+.light .bg-\[\#080808\]\/60 {
+  background-color: rgba(241, 245, 249, 0.6) !important;
+}
+.light .bg-\[\#080808\]\/80 {
+  background-color: rgba(255, 255, 255, 0.8) !important;
+}
+.light .bg-\[\#080808\]\/90 {
+  background-color: rgba(255, 255, 255, 0.9) !important;
+}
+.light .bg-\[\#080808\]\/20 {
+  background-color: rgba(241, 245, 249, 0.2) !important;
+}
+.light .bg-\[\#0c0c0c\]\/40 {
+  background-color: rgba(241, 245, 249, 0.4) !important;
+}
+.light .bg-\[\#0c0c0c\]\/60 {
+  background-color: rgba(255, 255, 255, 0.6) !important;
+}
+.light .bg-\[\#0c0c0c\]\/80 {
+  background-color: rgba(255, 255, 255, 0.8) !important;
+}
+.light .bg-\[\#0c0c0c\]\/20 {
+  background-color: rgba(241, 245, 249, 0.2) !important;
+}
+.light .bg-white\/\[0\.02\] {
+  background-color: rgba(15, 23, 42, 0.025) !important;
+}
+.light .bg-white\/\[0\.03\] {
+  background-color: rgba(15, 23, 42, 0.035) !important;
+}
+.light .bg-white\/5 {
+  background-color: rgba(15, 23, 42, 0.04) !important;
+}
+.light .bg-white\/10 {
+  background-color: rgba(15, 23, 42, 0.08) !important;
+}
+.light .hover\:bg-white\/\[0\.02\]:hover {
+  background-color: rgba(15, 23, 42, 0.025) !important;
+}
+.light .hover\:bg-white\/5:hover {
+  background-color: rgba(15, 23, 42, 0.04) !important;
+}
+.light .hover\:bg-white\/10:hover {
+  background-color: rgba(15, 23, 42, 0.08) !important;
+}
+
+/* Border Restyling under Light Mode */
+.light .border-white\/10 {
+  border-color: rgba(15, 23, 42, 0.08) !important;
+}
+.light .border-white\/20 {
+  border-color: rgba(15, 23, 42, 0.15) !important;
+}
+.light .border-white\/5 {
+  border-color: rgba(15, 23, 42, 0.04) !important;
+}
+.light .hover\:border-white\/20:hover {
+  border-color: rgba(15, 23, 42, 0.15) !important;
+}
+.light .divide-white\/10 > * + * {
+  border-color: rgba(15, 23, 42, 0.08) !important;
+}
+.light .divide-white\/5 > * + * {
+  border-color: rgba(15, 23, 42, 0.04) !important;
+}
+
+/* Font Colors in Light Theme */
+.light .text-white {
+  color: #0f172a !important;
+}
+.light .text-white\/90 {
+  color: #1e293b !important;
+}
+.light .text-white\/80 {
+  color: #334155 !important;
+}
+.light .text-white\/75 {
+  color: #334155 !important;
+}
+.light .text-white\/70 {
+  color: #334155 !important;
+}
+.light .text-white\/60 {
+  color: #475569 !important;
+}
+.light .text-white\/50 {
+  color: #475569 !important;
+}
+.light .text-white\/40 {
+  color: #64748b !important;
+}
+.light .text-white\/30 {
+  color: #94a3b8 !important;
+}
+.light .text-white\/25 {
+  color: #cbd5e1 !important;
+}
+.light .text-white\/20 {
+  color: #cbd5e1 !important;
+}
+.light .placeholder-white\/30::placeholder {
+  color: rgba(15, 23, 42, 0.4) !important;
+}
+.light .text-\[\#e0e0e0\] {
+  color: #1e293b !important;
+}
+.light .text-slate-100 {
+  color: #0f172a !important;
+}
+.light .text-slate-200 {
+  color: #1e293b !important;
+}
+.light .text-slate-300 {
+  color: #334155 !important;
+}
+.light .text-slate-400 {
+  color: #475569 !important;
+}
+.light .text-slate-500 {
+  color: #64748b !important;
+}
+.light .text-slate-600 {
+  color: #94a3b8 !important;
+}
+
+/* Interactive elements / Dynamic buttons overrides */
+.light .bg-white {
+  background-color: #0f172a !important;
+  color: #ffffff !important;
+  border-color: #0f172a !important;
+}
+.light .text-black {
+  color: #ffffff !important;
+}
+.light .border-white {
+  border-color: #0f172a !important;
+}
+
+/* Tracing specific graph nodes & lines */
+.light svg text {
+  fill: #0f172a !important;
+}
+.light svg text.text-white\/40 {
+  fill: #64748b !important;
+}
+.light svg line {
+  stroke: rgba(15, 23, 42, 0.1) !important;
+}
+.light svg [fill="rgba(12, 12, 12, 0.95)"] {
+  fill: #ffffff !important;
+}
+.light svg [fill="#080808"] {
+  fill: #f1f5f9 !important;
+}
+
+/* Force light scrollbar on light theme */
+.light ::-webkit-scrollbar-track {
+  background: #f8fafc;
+}
+.light ::-webkit-scrollbar-thumb {
+  background: rgba(15, 23, 42, 0.15);
+}
+.light ::-webkit-scrollbar-thumb:hover {
+  background: rgba(15, 23, 42, 0.25);
+}
+
+/* ========================================== */
+/* ADVANCED PRINT MEDIA OVERRIDES FOR REPORTS */
+/* ========================================== */
+@media print {
+  /* Hide standard web UI non-printable items */
+  aside, header, button, nav, .help-chatbot, #floating-chatbot, .toast, .no-print, [role="button"], .mobile-header-bar {
+    display: none !important;
+  }
+
+  body, html {
+    background-color: #ffffff !important;
+    background-image: none !important;
+    color: #000000 !important;
+    font-size: 11pt !important;
+    margin: 0.5in !important;
+    padding: 0 !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  /* When print-focused is active on body, hide everything inside root except the printable element */
+  body.print-focused #root > *:not(.print-active-target) {
+    display: none !important;
+  }
+
+  body.print-focused .print-active-target {
+    display: block !important;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100% !important;
+    max-width: 100% !important;
+    background-color: #ffffff !important;
+    color: #000000 !important;
+    border: none !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  /* Ensure text inside the printed section is high contrast black */
+  .print-active-target, .print-active-target * {
+    color: #0f172a !important;
+    background-color: transparent !important;
+    background-image: none !important;
+    border-color: #cbd5e1 !important;
+    text-shadow: none !important;
+    box-shadow: none !important;
+  }
+
+  /* Keep tables neat and legible */
+  .print-active-target table {
+    width: 100% !important;
+    border: 1px solid #94a3b8 !important;
+    border-collapse: collapse !important;
+    margin: 15px 0 !important;
+  }
+
+  .print-active-target th, 
+  .print-active-target td {
+    border: 1px solid #cbd5e1 !important;
+    padding: 8px !important;
+    font-size: 9pt !important;
+    text-align: left !important;
+  }
+
+  .print-active-target th {
+    background-color: #f1f5f9 !important;
+    color: #0f172a !important;
+    font-weight: bold !important;
+  }
+
+  /* Enhance colors for risk levels */
+  .print-active-target .text-rose-400,
+  .print-active-target .text-rose-500,
+  .print-active-target .text-rose-600 {
+    color: #b91c1c !important; /* Critical / Red */
+    font-weight: 800 !important;
+  }
+  .print-active-target .text-emerald-400,
+  .print-active-target .text-emerald-500,
+  .print-active-target .text-emerald-600 {
+    color: #166534 !important; /* Secure / Green */
+    font-weight: 800 !important;
+  }
+  .print-active-target .text-cyan-400,
+  .print-active-target .text-cyan-500,
+  .print-active-target .text-cyan-600 {
+    color: #0369a1 !important; /* Blue Info */
+    font-weight: 800 !important;
+  }
+  .print-active-target .text-white\/30,
+  .print-active-target .text-white\/40,
+  .print-active-target .text-white\/50 {
+    color: #64748b !important; /* Darker slate for readability */
+  }
+
+  /* Input fields, textareas formatting */
+  .print-active-target textarea,
+  .print-active-target input,
+  .print-active-target select {
+    border: 1px solid #94a3b8 !important;
+    background-color: #f8fafc !important;
+    color: #0f172a !important;
+    border-radius: 6px !important;
+    padding: 8px !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  /* Hide background graphics or radial designs */
+  .print-active-target .absolute {
+    display: none !important;
+  }
+
+  /* Keep relative positioning elements correctly layered */
+  .print-active-target .relative {
+    position: relative !important;
+  }
+
+  /* Adjust grids for simple dual-column standard layout */
+  .print-active-target .grid {
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 16px !important;
+  }
+
+  .print-active-target .lg\:col-span-2 {
+    grid-column: span 2 / span 2 !important;
+  }
+}

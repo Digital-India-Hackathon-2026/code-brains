@@ -1,0 +1,6 @@
+{
+  "name": "MuleTrace AI",
+  "description": "An elite financial forensics and cybercrime intelligence platform designed to trace illicit funds and detect money-mule accounts in real time.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

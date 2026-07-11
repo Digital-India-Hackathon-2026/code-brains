@@ -1,0 +1,5 @@
+{
+    "fraud_threshold": 0.01,
+    "minimum_recall_requirement": 0.95,
+    "selection_strategy": "Minimize false positives among thresholds with recall >= 95%; then maximize F1 and recall."
+}
