@@ -1,17 +1,28 @@
-﻿node_modules/
-venv/
-__pycache__/
-.env
+# Java
 target/
-*.jar
-*.pyc
+*.class
 
-# ML dataset - too large for GitHub
-ml-fraud-detection/data/raw/paysim.csv
-
-# Python cache and environments
+# Python
 __pycache__/
 *.pyc
-.venv/
 venv/
+.venv/
+
+# Node
+node_modules/
+dist/
+
+# IDE
+.idea/
+.vscode/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Environment
 .env
+.env.local
